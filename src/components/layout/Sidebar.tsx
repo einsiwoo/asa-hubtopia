@@ -77,13 +77,13 @@ export const Sidebar: React.FC = () => {
           isCollapsed ? "justify-center w-full" : "justify-start"
         )}>
           {isCollapsed ? (
-            <div className="h-8 w-8 bg-asa-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-medium">Á</span>
+            <div className="h-8 w-8 flex items-center justify-center">
+              <img src="/lovable-uploads/6de802f1-c891-44db-beeb-7d9db5729c6d.png" alt="Ása Tech Logo" className="h-8 w-auto" />
             </div>
           ) : (
             <>
-              <div className="h-8 w-8 bg-asa-500 rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white font-medium">Á</span>
+              <div className="h-8 w-auto flex items-center justify-center mr-3">
+                <img src="/lovable-uploads/6de802f1-c891-44db-beeb-7d9db5729c6d.png" alt="Ása Tech Logo" className="h-8 w-auto" />
               </div>
               <span className="text-lg font-medium text-neutral-900">Ása Tech</span>
             </>
