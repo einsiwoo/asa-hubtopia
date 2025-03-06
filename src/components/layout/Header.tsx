@@ -37,8 +37,8 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
           
           <div className="pl-2 border-l border-neutral-200 ml-2">
             <button className="flex items-center space-x-2 p-1 rounded-lg hover:bg-neutral-100 transition-colors">
-              <div className="h-8 w-8 bg-asa-500 rounded-full flex items-center justify-center text-white overflow-hidden">
-                <img src="/lovable-uploads/6de802f1-c891-44db-beeb-7d9db5729c6d.png" alt="Ása Tech Logo" className="h-6 w-auto" />
+              <div className="h-8 w-8 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                <img src="/lovable-uploads/aa04ffa2-59dd-4a65-9729-b308b227401e.png" alt="Ása Tech Logo" className="h-6 w-auto" />
               </div>
             </button>
           </div>

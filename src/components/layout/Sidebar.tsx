@@ -78,12 +78,12 @@ export const Sidebar: React.FC = () => {
         )}>
           {isCollapsed ? (
             <div className="h-8 w-8 flex items-center justify-center">
-              <img src="/lovable-uploads/6de802f1-c891-44db-beeb-7d9db5729c6d.png" alt="Ása Tech Logo" className="h-8 w-auto" />
+              <img src="/lovable-uploads/aa04ffa2-59dd-4a65-9729-b308b227401e.png" alt="Ása Tech Logo" className="h-8 w-auto" />
             </div>
           ) : (
             <>
               <div className="h-8 w-auto flex items-center justify-center mr-3">
-                <img src="/lovable-uploads/6de802f1-c891-44db-beeb-7d9db5729c6d.png" alt="Ása Tech Logo" className="h-8 w-auto" />
+                <img src="/lovable-uploads/aa04ffa2-59dd-4a65-9729-b308b227401e.png" alt="Ása Tech Logo" className="h-8 w-auto" />
               </div>
               <span className="text-lg font-medium text-neutral-900">Ása Tech</span>
             </>
