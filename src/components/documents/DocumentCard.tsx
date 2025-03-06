@@ -3,10 +3,9 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { 
   FileText, 
-  FilePdf, 
+  File, 
   FileImage, 
   FileSpreadsheet, 
-  File,
   Download, 
   Calendar, 
   Eye,
@@ -37,7 +36,7 @@ export const DocumentCard: React.FC<DocumentCardProps> = ({
   const getFileIcon = (type: DocumentType) => {
     switch (type) {
       case 'pdf':
-        return <FilePdf className="h-8 w-8 text-rose-500" />;
+        return <FileText className="h-8 w-8 text-rose-500" />;
       case 'doc':
         return <FileText className="h-8 w-8 text-blue-500" />;
       case 'xls':
