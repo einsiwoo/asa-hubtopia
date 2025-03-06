@@ -6,43 +6,70 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 9% 13%;
+    --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 9% 13%;
+    --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 9% 13%;
+    --popover-foreground: 222.2 84% 4.9%;
 
     --primary: 174 63% 40%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 200 12% 95%;
-    --secondary-foreground: 210 9% 13%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 10% 96%;
-    --muted-foreground: 220 5% 53%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
     --accent: 174 63% 40%;
-    --accent-foreground: 210 40% 98%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 14% 92%;
-    --input: 220 14% 92%;
-    --ring: 210 9% 13%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 174 63% 40%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 210 20% 98%;
-    --sidebar-foreground: 210 9% 31%;
-    --sidebar-primary: 174 63% 40%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 10% 96%;
-    --sidebar-accent-foreground: 210 9% 31%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 174 63% 40%;
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 222.2 47.4% 11.2%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 174 63% 40%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 174 63% 40%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 174 63% 40%;
+
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
   }
 
   * {
@@ -54,54 +81,40 @@
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply text-neutral-900 font-medium tracking-tight;
-  }
-
-  p {
-    @apply text-neutral-700 leading-relaxed;
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-white/80 backdrop-blur-[2px] shadow-glass border border-neutral-200/50 rounded-xl;
+    @apply bg-white/70 backdrop-blur-[2px] shadow-glass border border-neutral-200/50 rounded-xl;
   }
 
   .neo-card {
-    @apply bg-white shadow-neo border border-neutral-100 rounded-xl;
+    @apply bg-white shadow-neo border border-neutral-100 rounded-xl transition-all duration-200 hover:shadow-glass;
   }
 
-  .soft-shadow {
-    @apply shadow-soft;
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-neutral-100 text-neutral-600 hover:text-neutral-900;
   }
 
-  .text-balance {
-    text-wrap: balance;
+  .sidebar-item.active {
+    @apply bg-asa-500 text-white hover:bg-asa-600 hover:text-white;
   }
-  
-  .page-container {
-    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 animate-fade-in;
+
+  .btn-primary {
+    @apply px-4 py-2 bg-asa-500 text-white rounded-lg hover:bg-asa-600 transition-colors;
   }
-  
-  .page-header {
-    @apply flex items-center justify-between mb-6;
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-neutral-100 text-neutral-700 rounded-lg hover:bg-neutral-200 transition-colors;
   }
-  
-  .page-title {
-    @apply text-2xl sm:text-3xl font-medium text-neutral-900;
-  }
-  
-  .subtle-ring-focus {
-    @apply focus:outline-none focus:ring-2 focus:ring-asa-500/20 focus:ring-offset-0 transition-all duration-200;
-  }
-  
-  .card-hover {
-    @apply hover:shadow-medium transition-all duration-200;
-  }
-  
-  .dashboard-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+
+  .input-field {
+    @apply px-4 py-2 bg-white border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-asa-500/20 focus:border-asa-500/60 transition-all;
   }
 }
 

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -27,25 +26,20 @@ const NavItem: React.FC<NavItemProps> = ({ icon: Icon, label, to, isCollapsed, i
     <Link
       to={to}
       className={cn(
-        'flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 group',
-        isActive 
-          ? 'bg-asa-500 text-white font-medium' 
-          : 'hover:bg-neutral-200/50 text-neutral-700'
+        'sidebar-item',
+        isActive && 'active'
       )}
     >
       <Icon className={cn("h-5 w-5", isActive ? "text-white" : "text-neutral-500")} />
       {!isCollapsed && (
-        <span className={cn(
-          "transition-all duration-300", 
-          isCollapsed ? "opacity-0 w-0" : "opacity-100"
-        )}>
+        <span className="transition-all duration-300 whitespace-nowrap">
           {label}
         </span>
       )}
       {isCollapsed && (
-        <span className="absolute left-full ml-2 rounded-md bg-neutral-800 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="absolute left-full ml-2 px-2 py-1 bg-neutral-900 text-white text-xs rounded-md opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200">
           {label}
-        </span>
+        </div>
       )}
     </Link>
   );
@@ -68,12 +62,13 @@ export const Sidebar: React.FC = () => {
   return (
     <aside 
       className={cn(
-        "h-screen relative bg-sidebar flex flex-col border-r border-neutral-200 transition-all duration-300 ease-in-out z-10",
+        "h-screen bg-sidebar relative flex flex-col border-r border-neutral-200/50 transition-all duration-300 ease-in-out z-10",
         isCollapsed ? "w-16" : "w-64"
       )}
     >
-      <div className="flex items-center h-16 px-4 border-b border-neutral-200">
-        <div className={cn("flex items-center transition-all duration-300", 
+      <div className="flex items-center h-16 px-4 border-b border-neutral-200/50">
+        <div className={cn(
+          "flex items-center transition-all duration-300", 
           isCollapsed ? "justify-center w-full" : "justify-start"
         )}>
           {isCollapsed ? (
@@ -82,7 +77,7 @@ export const Sidebar: React.FC = () => {
             </div>
           ) : (
             <>
-              <div className="h-8 w-auto flex items-center justify-center mr-3">
+              <div className="h-8 w-8 flex items-center justify-center mr-3">
                 <img src="/lovable-uploads/aa04ffa2-59dd-4a65-9729-b308b227401e.png" alt="Ása Tech Logo" className="h-8 w-auto" />
               </div>
               <span className="text-lg font-medium text-neutral-900">Ása Tech</span>
@@ -106,7 +101,7 @@ export const Sidebar: React.FC = () => {
 
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute -right-3 top-20 h-6 w-6 rounded-full bg-white border border-neutral-200 flex items-center justify-center shadow-sm hover:shadow transition-all"
+        className="absolute -right-3 top-20 h-6 w-6 rounded-full bg-white shadow-neo-sm border border-neutral-200/50 flex items-center justify-center hover:shadow-neo transition-all duration-200"
       >
         {isCollapsed ? (
           <ChevronRight className="h-3 w-3 text-neutral-500" />
